@@ -1,0 +1,17 @@
+{
+  "name": "heisenberg-media-player",
+  "version": "1.0.0",
+  "description": "Proyecto del curso profesional de Javascript",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start":"live-server"
+  },
+  "author": "Heisenberg93",
+  "keywords": [
+    "platzi"
+  ],
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

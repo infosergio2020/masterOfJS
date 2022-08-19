@@ -1,0 +1,73 @@
+instalar servidor
+npm i -D live-server
+
+
+async vuelve asincrona a la peticion pero cuando la encuentra detiene la lectura del DOM para ejecutar el script
+defer es como async pero ademas manda la ejecucion del script al final de la lectura del HTML
+
+scope --> alcance de las variables
+
+global scope
+(el window es el ambito global)
+ej: var message="hi"
+accedo como window.message
+
+cuando traes un CDN tambien puedes accerder de forma global
+ej: Jquery --> es la variable $
+si sobreescribo esta variable entonces sobreescribo todo jquery
+
+
+function scope
+un ejemplo de este es 
+for(i=0;i<10;i++){
+    settimeout(function(){console.log(i)},100);
+}
+
+lo que pasa aca es que la funcion va a terminar su ejecucion antes de imprimir
+por lo que va a imprimir 10
+
+esto se resuleve asi
+var i;
+for(i=0;i<10;i++){
+    funtion eventuallyPrintNumber(n){
+        settimeout(function(){
+            console.log(i)
+            },100);
+    }
+
+    eventuallyPrintNumber(i);
+}
+cuando pasamos i a la funcion entramos en un scope nuevo
+por lo que el argumento mantiene el i de cada iteracion
+ahora tenemos a n como un scope totalmente nuevo
+
+
+block scope
+let y const operan aca
+
+let i opera sobre el block en caso del for
+lo que esta dentro del for es un block 
+en cada iteracion hay un block nuevo y let i
+se queda con el valor de ese bloque de iteracion
+
+
+module scope
+usado en react o node
+este scope dice que el entorno o la vida de una variable
+va a estar limitado al archivo donde esta definido
+
+ejemplo si agarro el script y lo defino como module
+
+    <script type="module" src="./assets/index.js"></script>
+
+el alcance de objetos, funciones y variables solo es dentro del archivo 
+por lo que si quiero acceder desde la consola me dira undifere
+ya que ahora con module esta dentro del archivo y la unica forma de usarlos es importandolos y exportandolos
+
+NOTA: para que este encadenamiento de modulos y el uso de 
+import y export funcionen bien 
+el archivo a usar import debe estar definido en 
+el tag script como type="module"
+
+
+
