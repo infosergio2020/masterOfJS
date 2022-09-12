@@ -16,3 +16,9 @@ buttonPlay.onclick = () => { !player.onPlay ? player.play(): player.pause() }
 buttonMute.onclick = () => { 
     player.onMute ? player.unmute(): player.mute() 
 }
+
+if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/sw.js').catch(error => {
+        console.log(error);
+    })
+}
